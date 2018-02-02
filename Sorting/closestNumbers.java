@@ -14,7 +14,7 @@ public class closestNumbers {
     {
         // Complete this function
         Arrays.sort(arr);
-        int minAbs = Integer.MAX_VALUE; //Minimum absolute difference
+        int minAbs = Integer.MIN_VALUE; //Minimum absolute difference
         String result = "";
         for(int i = 0; i < arr.length-1; i++)
         {
