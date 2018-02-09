@@ -10,25 +10,21 @@ public class Solution {
         HashMap<String, long> result = new HashMap<String, long>();
         // change of plan: create the HashMap first by dynamic programming
         // heights.length == prices.length
+        // base case nextIndex is the final index
         if (nextIndex == heights.length - 1){
-            long curVal = Math.abs(heights[nextIndex] - heights[curIndex]) + prices[nextIndex];
-            String s = curIndex + "_" + nextIndex;
-            long curResult = Math.min(0, curVal)
-            result.put(s, curResult);
-            return curResult;
-        } else {
-            long val1 = Math.abs(heights[nextIndex] - heights[curIndex]) + prices[nextIndex];
-            long val2 = operation(nextIndex, nextIndex + 1, heights, prices);
-            long passValue = val1+val2;
+            long passValue = Math.abs(heights[nextIndex] - heights[curIndex]) + prices[nextIndex];
             String s = curIndex + "_" + nextIndex;
             if (heights[nextIndex] > heights[curIndex]){
-                
+                result.put(s, passValue);
                 return passValue;
+            } else {
+                long curResult = Math.min(0, passValue)
+                result.put(s, curResult);
+                return curResult;
             }
-            else {
-                long skipValue = operation(curIndex, nextIndex + 1, heights, prices);
-                return Math.min(passValue, skipValue);
-            }
+        } 
+        for (nextIndex = heights.length - 2; nextIndex >= 1; nextIndex--){
+            
         }
     }
 
