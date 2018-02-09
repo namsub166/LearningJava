@@ -1,0 +1,51 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static long operation(int curIndex, int nextIndex, int[] heights, int[] prices) {
+        HashMap<String, long> result = new HashMap<String, long>();
+        // change of plan: create the HashMap first by dynamic programming
+        // heights.length == prices.length
+        if (nextIndex == heights.length - 1){
+            long curVal = Math.abs(heights[nextIndex] - heights[curIndex]) + prices[nextIndex];
+            String s = curIndex + "_" + nextIndex;
+            long curResult = Math.min(0, curVal)
+            result.put(s, curResult);
+            return curResult;
+        } else {
+            long val1 = Math.abs(heights[nextIndex] - heights[curIndex]) + prices[nextIndex];
+            long val2 = operation(nextIndex, nextIndex + 1, heights, prices);
+            long passValue = val1+val2;
+            String s = curIndex + "_" + nextIndex;
+            if (heights[nextIndex] > heights[curIndex]){
+                
+                return passValue;
+            }
+            else {
+                long skipValue = operation(curIndex, nextIndex + 1, heights, prices);
+                return Math.min(passValue, skipValue);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] heights = new int[n];
+        heights[0] = in.nextInt();  
+        for(int heights_i = 1; heights_i < n; heights_i++){
+            heights[heights_i] = in.nextInt();
+        }
+        int[] prices = new int[n];
+        for(int prices_i = 1; prices_i < n; prices_i++){
+            prices[prices_i] = in.nextInt();
+        }
+        long result = operation(0, 1, heights, prices);
+        System.out.println(result + n);
+        in.close();
+    }
+}
