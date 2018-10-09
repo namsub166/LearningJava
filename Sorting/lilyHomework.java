@@ -1,17 +1,10 @@
-package HackerRank.Sorting;
+import java.util.*;
 
 /*
  * Author: Nam Tran
  * Date: Feb 2, 2018
  * Problem Source: https://www.hackerrank.com/challenges/lilys-homework/problem
- * Things to remember: 
- * 		To sort an array arr using the default java method: Arrays.sort(arr);
- * 		To sort an array arr in reverse order: Arrays.sort(arr, Collections.reverseOrder());
- * 		Remember the latter method only works for array of primitive type. 
  */
-
-import java.util.*;
-
 
 public class lilyHomework {
 
@@ -68,7 +61,7 @@ public class lilyHomework {
                 descendingSwaps++;
             }
         }
-        return (Math.min(ascendingSwaps,descendingSwaps));//Choose the smallest of the two possible smallest
+        return (Math.min(ascendingSwaps,descendingSwaps)); //Choose the smallest of the two possible smallest
     }
 
     public static void main(String[] args) {

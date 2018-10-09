@@ -1,12 +1,9 @@
-package HackerRank.Sorting;
-
 import java.util.*;
 
 /*
  * Author: Nam Tran
  * Date: Feb 2, 2018
  * Problem Source: https://www.hackerrank.com/challenges/countingsort4/problem
- * Things to remember: 
  */
 
 public class theFullCountingSort {
@@ -17,10 +14,6 @@ public class theFullCountingSort {
         int n = in.nextInt();
         int[] frequencies = new int[100];
 
-        /*
-         * since with one value of number, there might be many characters, hence I use 
-         * a queue of String to keep track of these (possibly duplicate) characters.
-         */
         HashMap<Integer, Queue<String>> order = new HashMap<Integer, Queue<String>>(); 
 
         for(int i = 0; i < n; i++)

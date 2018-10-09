@@ -1,12 +1,9 @@
-package HackerRank.Sorting;
-
 import java.util.*;
 
 /*
  * Author: Nam Tran
  * Date: Feb 2, 2018
  * Problem Source: https://www.hackerrank.com/challenges/fraudulent-activity-notifications/problem
- * Things to remember: 
  */
 
 public class fraudulentActivityNotifications {

@@ -1,5 +1,3 @@
-package HackerRank.Sorting;
-
 import java.util.*;
 
 /*
